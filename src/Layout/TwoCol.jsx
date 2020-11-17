@@ -66,7 +66,7 @@ const TwoColLayout = (props) => {
   const newProps = {
     ...restProps,
     orientation: orientations.X,
-    paneSizes: mapColsStretchBehaviorsToPaneSizesTupel(colsStretchBehavior),
+    panesSizes: mapColsStretchBehaviorsToPaneSizesTupel(colsStretchBehavior),
     panesAsOverlay: mapResponsiveDataToOverlayTupel(responsiveData),
     panesVisibility: mapResponsiveDataToVisibilityTupel(responsiveData)
   };
