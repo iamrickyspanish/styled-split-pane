@@ -84,7 +84,7 @@ transform: ${(props) =>
   transition: all 0.25s ease-in-out;
   ${mapPropsToDimensions};
   /* ${(props) => mapSizeToFlexProps(props.size)} */
-  overflow: hidden;
+  overflow: ${(props) => (props.asOverlay ? "hidden" : "visible")};
 `;
 
 Pane.propTypes = {
