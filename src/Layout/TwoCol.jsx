@@ -31,7 +31,6 @@ const mapColsStretchBehaviorsToPaneSizesTupel = (colsStretchBehaviors) => {
 };
 
 const mapResponsiveDataToOverlayTupel = ({ isResponsive, responsiveCol }) =>
-  console.log("isResponsive, responsiveCol", isResponsive, responsiveCol) ||
   isResponsive
     ? responsiveCol === responsiveCols.LEFT
       ? [true, false]
@@ -43,9 +42,7 @@ const mapResponsiveDataToVisibilityTupel = ({
   responsiveCol,
   isResponsiveColFocused
 }) => {
-  console.log("!!", isResponsive, responsiveCol, isResponsiveColFocused);
   const isResponsiveColVisible = !isResponsive || isResponsiveColFocused;
-  console.log("isResponsiveColVisible", isResponsiveColVisible);
   return responsiveCol === responsiveCols.LEFT
     ? [isResponsiveColVisible, true]
     : [true, isResponsiveColVisible];
