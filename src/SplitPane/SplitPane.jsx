@@ -26,7 +26,8 @@ const SplitPaneLayout = (props) => {
     children,
     panesVisibility,
     panesAsOverlay,
-    panesSize
+    panesSize,
+    ...restProps
   } = props;
 
   const [paneAContent, paneBContent] = Array.isArray(children) ? children : [];
@@ -71,8 +72,13 @@ const SplitPaneLayout = (props) => {
     );
   }, [paneBContent, isPaneBVisible, orientation, isPaneBOverlay, paneBSize]);
 
+  const newProps = {
+    ...restProps,
+    orientation
+  };
+
   return (
-    <Wrapper orientation={orientation}>
+    <Wrapper {...newProps}>
       {renderedPaneA}
       {renderedPaneB}
     </Wrapper>
