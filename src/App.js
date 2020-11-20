@@ -19,23 +19,21 @@ export default function App() {
       orientation={orientation}
       panesAsOverlay={[isMobile, false]}
       panesVisibility={[isPaneVisible, true]}
-      panesSize={[paneSizes.FULL, paneSizes.FULL]}
+      panesSize={[paneSizes.AUTO, paneSizes.FULL]}
     >
-      <Box p={2} bg="red">
-        <button onClick={togglePaneVisibility}>close</button>
+      <Box p={2} bg="red" flex={1} minHeight={0}>
+        <button onClick={togglePaneVisibility}>toggle</button>
       </Box>
-      <Box bg="blue" p={2}>
+      <Box bg="blue" p={2} flex={1} minHeight={0}>
         {isMobile && isPaneVisible && (
           <Backdrop onClick={togglePaneVisibility} />
         )}
         <Box>
-          <button onClick={togglePaneVisibility}>open</button>
+          <button onClick={togglePaneVisibility}>toggle</button>
         </Box>
         <Box flex={1}>
           <Scroll>
-            <Box my={3} mx={3}>
-              {/* {loremIpsum()} */}
-            </Box>
+            <Box my={3} mx={3}></Box>
           </Scroll>
         </Box>
       </Box>

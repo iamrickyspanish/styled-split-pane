@@ -10,10 +10,10 @@ export const orientations = {
 
 const Wrapper = styled.div`
   display: flex;
+  flex: 1;
+  min-height: 0;
   flex-direction: ${(props) =>
     props.orientation === orientations.Y ? "column" : "row"};
-  height: 100%;
-  width: 100%;
 `;
 
 Wrapper.propTypes = {

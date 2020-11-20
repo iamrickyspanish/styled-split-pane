@@ -39,7 +39,7 @@ const mapPropsToDimensions = ({ slideDirection, isVisible, size }) => {
     case slideDirections.DOWN:
       return `
         width: 100%;
-        height: ${size === sizes.FULL ? "100%" : "auto"};
+        // height: ${size === sizes.FULL ? "100%" : "auto"};
         max-height: ${isVisible ? "5000px" : "0"};
       `;
     default:
@@ -77,6 +77,11 @@ const mapSlideDirectionToTranslateAttribute = (slideDirection) => {
 };
 
 const Pane = styled.div`
+  align-content: space-between;
+  min-height: 0;
+  ${(props) => (props.size === sizes.FULL ? "flex: 1;" : "")}
+  display: flex;
+  flex-direction: column;
   ${(props) => props.asOverlay && overlayStyles(props)}
 transform: ${(props) =>
   mapSlideDirectionToTranslateAttribute(props.slideDirection)}(${(props) =>

@@ -84,7 +84,7 @@ TwoColLayout.defaultProps = {
   isResponsive: false,
   responsiveCol: responsiveCols.LEFT,
   isResponsiveColFocused: false,
-  colsStretchBehavior: [colStretchBehaviors.MAX, colStretchBehaviors.MAX]
+  colsStretchBehavior: [colStretchBehaviors.GROW, colStretchBehaviors.GROW]
 };
 
 export default TwoColLayout;

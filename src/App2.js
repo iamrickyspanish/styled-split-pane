@@ -18,27 +18,25 @@ export default function App() {
       responsiveCol={responsiveCols.LEFT}
       isResponsive={isMobile}
       isResponsiveColFocused={isPaneVisible}
-      colsStretchBehavior={[
-        colStretchBehaviors.SHRINK,
-        colStretchBehaviors.GROW
-      ]}
+      colsStretchBehavior={[colStretchBehaviors.GROW, colStretchBehaviors.GROW]}
     >
       <Box
         p={2}
-        bg="green"
-        height="100%"
+        flex={1}
+        bg="white"
+        minHeight={0}
         style={{ borderRight: "1px solid black" }}
       >
         Plane 1<br />
-        <button onClick={() => setPaneVisible(false)}>close</button>
+        <button onClick={() => setPaneVisible(false)}>toggle</button>
       </Box>
-      <Box bg="yellow" height="100%">
+      <Box bg="yellow" flex={1} minHeight={0}>
         {isMobile && isPaneVisible && (
           <Backdrop onClick={() => setPaneVisible(false)} />
         )}
         <Box p={2}>
           Plane 2<br />
-          <button onClick={() => setPaneVisible(true)}>open</button>
+          <button onClick={() => setPaneVisible(true)}>toggle</button>
         </Box>
       </Box>
     </TwoColLayout>
