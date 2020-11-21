@@ -5,11 +5,11 @@ import { Box } from "reflexbox";
 import TwoColLayout, {
   responsiveCols,
   colStretchBehaviors
-} from "./Layout/TwoCol";
+} from "../Layout/TwoCol";
 
-import Backdrop from "./Backdrop";
+import Backdrop from "../Backdrop";
 
-export default function App() {
+export default () => {
   const isMobile = true;
   const [isPaneVisible, setPaneVisible] = useState(false);
 
@@ -41,4 +41,4 @@ export default function App() {
       </Box>
     </TwoColLayout>
   );
-}
+};
