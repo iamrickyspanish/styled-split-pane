@@ -9,7 +9,10 @@ export const orientations = {
 };
 
 const Wrapper = styled.div`
+  background-color: inherit;
   display: flex;
+  position: relative;
+  overflow: hidden;
   flex: 1;
   min-height: 0;
   flex-direction: ${(props) =>

@@ -8,25 +8,25 @@ export const responsiveRows = {
   BOTTOM: "bottom"
 };
 
-export const colStretchBehaviors = {
+export const rowStretchBehaviors = {
   SHRINK: "shrink",
   GROW: "grow"
 };
 
-const mapColStretchBehaviorToPaneSize = (colStretchBehavior) => {
+const mapRowStretchBehaviorToPaneSize = (colStretchBehavior) => {
   switch (colStretchBehavior) {
-    case colStretchBehaviors.SHRINK:
+    case rowStretchBehaviors.SHRINK:
       return paneSizes.AUTO;
-    case colStretchBehaviors.GROW:
+    case rowStretchBehaviors.GROW:
     default:
       return paneSizes.FULL;
   }
 };
 
-const mapColsStretchBehaviorsToPaneSizesTupel = (colsStretchBehaviors) => {
+const mapRowsStretchBehaviorsToPaneSizesTupel = (rowsStretchBehaviors) => {
   return [
-    mapColStretchBehaviorToPaneSize(colsStretchBehaviors[0]),
-    mapColStretchBehaviorToPaneSize(colsStretchBehaviors[1])
+    mapRowStretchBehaviorToPaneSize(rowsStretchBehaviors[0]),
+    mapRowStretchBehaviorToPaneSize(rowsStretchBehaviors[1])
   ];
 };
 
@@ -40,33 +40,33 @@ const mapResponsiveDataToOverlayTupel = ({ isResponsive, responsiveRow }) =>
 const mapResponsiveDataToVisibilityTupel = ({
   isResponsive,
   responsiveRow,
-  isResponsiveColFocused
+  isResponsiveRowFocused
 }) => {
-  const isResponsiveColVisible = !isResponsive || isResponsiveColFocused;
+  const isResponsiveRowVisible = !isResponsive || isResponsiveRowFocused;
   return responsiveRow === responsiveRows.TOP
-    ? [isResponsiveColVisible, true]
-    : [true, isResponsiveColVisible];
+    ? [isResponsiveRowVisible, true]
+    : [true, isResponsiveRowVisible];
 };
 
 const TwoColLayout = (props) => {
   const {
     isResponsive,
     responsiveRow,
-    isResponsiveColFocused,
-    colsStretchBehavior,
+    isResponsiveRowFocused,
+    rowsStretchBehavior,
     ...restProps
   } = props;
 
   const responsiveData = {
     isResponsive,
     responsiveRow,
-    isResponsiveColFocused
+    isResponsiveRowFocused
   };
 
   const newProps = {
     ...restProps,
     orientation: orientations.Y,
-    panesSize: mapColsStretchBehaviorsToPaneSizesTupel(colsStretchBehavior),
+    panesSize: mapRowsStretchBehaviorsToPaneSizesTupel(rowsStretchBehavior),
     panesAsOverlay: mapResponsiveDataToOverlayTupel(responsiveData),
     panesVisibility: mapResponsiveDataToVisibilityTupel(responsiveData)
   };
@@ -77,14 +77,14 @@ TwoColLayout.propTypes = {
   isResponsive: PropTypes.bool,
   responsiveRow: PropTypes.oneOf(Object.values(responsiveRows)),
   isResponsiveColFocused: PropTypes.bool,
-  colsStretchBehavior: PropTypes.array
+  rowsStretchBehavior: PropTypes.array
 };
 
 TwoColLayout.defaultProps = {
   isResponsive: false,
   responsiveRow: responsiveRows.TOP,
-  isResponsiveColFocused: false,
-  colsStretchBehavior: [colStretchBehaviors.GROW, colStretchBehaviors.GROW]
+  isResponsiveRowFocused: false,
+  rowsStretchBehavior: [rowStretchBehaviors.GROW, rowStretchBehaviors.GROW]
 };
 
 export default TwoColLayout;

@@ -19,10 +19,15 @@ export default () => {
       panesVisibility={[isPaneVisible, true]}
       panesSize={[paneSizes.AUTO, paneSizes.FULL]}
     >
-      <Box p={2} bg="red" flex={1} minHeight={0}>
+      <Box
+        p={2}
+        flex={1}
+        minHeight={0}
+        style={{ borderRight: "1px solid black" }}
+      >
         <button onClick={togglePaneVisibility}>toggle</button>
       </Box>
-      <Box bg="blue" p={2} flex={1} minHeight={0}>
+      <Box p={2} flex={1} minHeight={0}>
         {isMobile && isPaneVisible && (
           <Backdrop onClick={togglePaneVisibility} />
         )}

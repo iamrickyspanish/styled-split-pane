@@ -57,7 +57,7 @@ const mapSizeToFlexProps = (size) => {
 };
 
 const overlayStyles = (props) => `
-  position: fixed;
+  position: absolute;
   top: 0;
   ${props.slideDirection}: 0;
   z-index: 200;
@@ -78,10 +78,12 @@ const mapSlideDirectionToTranslateAttribute = (slideDirection) => {
 
 const Pane = styled.div`
   align-content: space-between;
+  background-color: inherit;
   min-height: 0;
   ${(props) => (props.size === sizes.FULL ? "flex: 1;" : "")}
   display: flex;
   flex-direction: column;
+  position:relative;
   ${(props) => props.asOverlay && overlayStyles(props)}
 transform: ${(props) =>
   mapSlideDirectionToTranslateAttribute(props.slideDirection)}(${(props) =>

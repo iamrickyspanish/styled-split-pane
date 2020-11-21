@@ -15,6 +15,7 @@ export default () => {
 
   return (
     <TwoColLayout
+      bg="white"
       responsiveCol={responsiveCols.LEFT}
       isResponsive={isMobile}
       isResponsiveColFocused={isPaneVisible}
@@ -23,14 +24,13 @@ export default () => {
       <Box
         p={2}
         flex={1}
-        bg="white"
         minHeight={0}
         style={{ borderRight: "1px solid black" }}
       >
         Plane 1<br />
         <button onClick={() => setPaneVisible(false)}>toggle</button>
       </Box>
-      <Box bg="yellow" flex={1} minHeight={0}>
+      <Box flex={1} minHeight={0}>
         {isMobile && isPaneVisible && (
           <Backdrop onClick={() => setPaneVisible(false)} />
         )}

@@ -35,12 +35,12 @@ export default () => (
           </Box>
         ))}
       </Flex>
-      <Flex flexDirection="column" flex={1} minHeight={0}>
+      <Flex flexDirection="column" flex={1} minHeight={0} bg="white">
         <Switch>
           <Route path="/two-col">
             <TwoCol />
           </Route>
-          <Route path="split-pane">
+          <Route path="/split-pane">
             <SplitPane />
           </Route>
           <Route path="/two-row">
