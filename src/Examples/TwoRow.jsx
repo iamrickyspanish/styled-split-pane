@@ -15,7 +15,6 @@ export default () => {
 
   return (
     <TwoRowLayout
-      bg="white"
       responsiveRow={responsiveRows.TOP}
       isResponsive={isMobile}
       isResponsiveRowFocused={isPaneVisible}

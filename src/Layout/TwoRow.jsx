@@ -48,7 +48,7 @@ const mapResponsiveDataToVisibilityTupel = ({
     : [true, isResponsiveRowVisible];
 };
 
-const TwoColLayout = (props) => {
+const TwoRowLayout = (props) => {
   const {
     isResponsive,
     responsiveRow,
@@ -73,18 +73,18 @@ const TwoColLayout = (props) => {
   return <SplitPane {...newProps} />;
 };
 
-TwoColLayout.propTypes = {
+TwoRowLayout.propTypes = {
   isResponsive: PropTypes.bool,
   responsiveRow: PropTypes.oneOf(Object.values(responsiveRows)),
   isResponsiveColFocused: PropTypes.bool,
   rowsStretchBehavior: PropTypes.array
 };
 
-TwoColLayout.defaultProps = {
+TwoRowLayout.defaultProps = {
   isResponsive: false,
   responsiveRow: responsiveRows.TOP,
   isResponsiveRowFocused: false,
   rowsStretchBehavior: [rowStretchBehaviors.GROW, rowStretchBehaviors.GROW]
 };
 
-export default TwoColLayout;
+export default TwoRowLayout;
